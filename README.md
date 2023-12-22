@@ -39,5 +39,6 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
  - WHEN I am idle on the site for more than a set time
  - THEN I am able to view posts and comments but I am prompted to log in again before I can add, update, or delete posts
 
+## Heroku deployment: https://git.heroku.com/still-dawn-17849.git
 
 ![image](https://github.com/Nefta007/bloggo2.0/assets/135322031/c8e4dad4-a921-4908-9346-c742a33fcf5c)
