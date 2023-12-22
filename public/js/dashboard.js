@@ -45,9 +45,9 @@ const deleteHandler = async (event) => {
     }
 };
 
-if(elblogForm){
-    elblogForm.addEventListener('submit', dashboardHandler);
-}
-else {
+(elblogForm)
+elblogForm.addEventListener('submit', dashboardHandler);
+
+if (elpostList) {
     elpostList.addEventListener('click', deleteHandler);
 }
