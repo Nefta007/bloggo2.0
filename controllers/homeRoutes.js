@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['id','username'],
+                    attributes: ['username'],
                 },
             ],
         });
@@ -27,23 +27,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/blogs/:id', withAuth, async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'username'],
                 },
                 {
                     model: Comment,
-                    attributes: ['blog_comment', 'blog_date', 'blogpost_id'],
-                    include: [
-                        {
-                            model: User,
-                            attributes: ['id', 'username'],
-                        },
-                    ],
                 },
             ],
         });
@@ -68,7 +60,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
         include: [
             {
                 model: Blog,
-                attributes: ['id', 'title', 'description', 'blog_date', 'user_id'],
             },
         ],
     });
@@ -83,7 +74,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/dashboard');
         return;
     }
 
